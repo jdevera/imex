@@ -1,0 +1,20 @@
+# Image Metadata Expander
+
+Modify values of an image Exif and Iptc tags according to a set of rules.
+
+A sample rules file can be found under the extras directory.
+
+## Fair warning
+
+This script is still in a very early development stage.
+
+## TO DO
+
+ * Write test cases
+ * Write better docs
+ * Deal with different encodings
+ * The dishes!
+
+## License
+
+Please see the LICENSE file.

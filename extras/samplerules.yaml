@@ -1,0 +1,71 @@
+#
+#
+#=======================================================================================
+# Section 1: Always apply these changes
+#
+# This section contains a set of a tags and their corresponding values that will be
+# applied to all processed image files.
+#
+always_apply: # Do not modify this key
+#=======================================================================================
+
+  Exif.Image.Artist: Jacobo de Vera
+  Exif.Image.Copyright: Copyright, Jacobo de Vera, 2010. All rights reserved.
+  Iptc.Application2.Byline: [Jacobo de Vera]
+  Iptc.Application2.Copyright: Copyright, Jacobo de Vera, 2010. All rights reserved.
+
+#=======================================================================================
+
+
+#=======================================================================================
+# Section 2: Conditional rules
+#
+# This section contains a set of rules with this format:
+#
+# SearchTag:
+#   SearchValue:
+#     TagToSet: Value(s) to set
+#     TagToSet2: Values
+#   SearchValue2:
+#     TagToSet: Value(s) to set
+#     TagToSet2: Values
+#
+# If TagToSet is '_self', then the values are applied to SearchTag.
+#
+# If TagToSet is '_rm' and its value is 'Yes' or 'True', then SearchValue will be
+# removed from SearchTag.
+#
+rules: # Do not modify this key
+#=======================================================================================
+  Iptc.Application2.Keywords:   # Search this tag
+
+    #----------------------------------------------------------
+    # Places
+    #----------------------------------------------------------
+    #
+    # Ireland
+    dublin:                          # If this value is found
+      _rm : Yes                      # Remove dublin from Iptc.Application2.Keywords
+      _self: [Dublin]                # Then add this value to the search tag
+
+                                     # Alternatively, the whole tag name can be used
+    phoenixpark:
+      Iptc.Application2.Keywords: [ -phoenixpark, Phoenix Park, Dublin ]
+    Dublin:
+      _self: [Co. Dublin]
+    Co. Dublin:
+      _self: [Republic Of Ireland]
+    Republic Of Ireland:
+      _self: [Ireland]
+    Ireland:
+      _self: [Europe]
+
+    #----------------------------------------------------------
+    # People
+    #----------------------------------------------------------
+    jacobo:
+      _self: [-jacobo, Jacobo]
+    Jacobo:
+      _self: [people]
+
+#=======================================================================================
